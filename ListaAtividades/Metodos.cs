@@ -25,5 +25,46 @@ namespace ListaAtividades
 
             Console.WriteLine($"US {valor} = R$ {resultado}. DOL: {dolar}");
         }
+
+        public int ValorA { get; set; }
+        public int ValorB { get; set; }
+
+        public void TrocarValores()
+        {
+
+            int ValorAuxA = ValorA;
+            int ValorAuxB = ValorB;
+
+            Console.WriteLine($"<--- VALORES ORIGINAIS --->");
+            Console.WriteLine($"Valor A: {ValorA}");
+            Console.WriteLine($"Valor B: {ValorB}");
+            Console.WriteLine($"<------------------------->");
+
+            ValorA = ValorAuxB;
+            ValorB = ValorAuxA;
+
+            Console.WriteLine($"<--- VALORES TROCADOS --->");
+            Console.WriteLine($"Valor A: {ValorA}");
+            Console.WriteLine($"Valor B: {ValorB}");
+            Console.WriteLine($"<------------------------>");
+        }
+
+        public int Num { get; set; }
+
+        public void Modulo(int num)
+        {
+            Num = num;
+
+            if(Num >= 0)
+            {
+                Num = Num;
+            }
+            else if (Num < 0)
+            {
+                Num = Num * (-1);
+            }
+
+            Console.WriteLine($"O seu módulo é: {Num}");
+        }
     }
 }
