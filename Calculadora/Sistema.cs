@@ -10,17 +10,15 @@ namespace Calculadora
     {
         public void RodarSistema()
         {
-            int num1 = 0;
-            int num2 = 0;
-            int acao = -1;
+            long num1 = 0;
+            long num2 = 0;
+            long acao = -1;
 
             while (acao != 0)
             {
-                int opcao = MenuInicial();
+                long opcao = MenuInicial();
                 if (opcao == 1)
                 {
-                    num1 = LerNumero();
-                    num2 = LerNumero();
                     acao = MenuCalculadora();
                     if (acao == 0)
                     {
@@ -28,13 +26,14 @@ namespace Calculadora
                     }
                     else
                     {
-                        Calcular(num1, num2, acao);
+                        num1 = LerNumero();
+                        num2 = LerNumero();
+                        long resultado = Calcular(num1, num2, acao);
+                        Console.WriteLine($"O resultado é: {resultado}");
                     }
                 }
                 else if (opcao == 2)
                 {
-                    num1 = LerNumero();
-                    num2 = LerNumero();
                     acao = MenuVerificacoes();
                     if (acao == 0)
                     {
@@ -42,15 +41,17 @@ namespace Calculadora
                     }
                     else
                     {
+                        num1 = LerNumero();
+                        num2 = LerNumero();
                         Verificar(num1, num2, acao);
                     }
                 }
             }
         }
 
-        private int MenuInicial()
+        private long MenuInicial()
         {
-            int opcao = 0;
+            long opcao = 0;
 
             while (opcao != 1 && opcao != 2)
             {
@@ -59,7 +60,7 @@ namespace Calculadora
                 Console.WriteLine("2 - VERIFICAÇÕES");
                 Console.WriteLine("<---------------->");
                 Console.WriteLine("Digite um número respectivo à ação que deseja realizar:");
-                opcao = int.Parse(Console.ReadLine());
+                opcao = long.Parse(Console.ReadLine());
 
                 if (opcao != 1 && opcao != 2)
                 {
@@ -70,9 +71,9 @@ namespace Calculadora
             return opcao;
         }
 
-        private int MenuCalculadora()
+        private long MenuCalculadora()
         {
-            int acao = -1;
+            long acao = -1;
 
             while(acao != 1 && acao != 2 && acao != 3 && acao != 4 && acao != 0)
             {
@@ -83,7 +84,7 @@ namespace Calculadora
                 Console.WriteLine("4 - Divisão");
                 Console.WriteLine("0 - Sair");
                 Console.WriteLine("<------------------->");
-                acao = int.Parse(Console.ReadLine());
+                acao = long.Parse(Console.ReadLine());
 
                 if (acao != 1 && acao != 2 && acao != 3 && acao != 4 && acao != 0)
                 {
@@ -93,9 +94,9 @@ namespace Calculadora
             return acao;
         }
 
-        private int MenuVerificacoes()
+        private long MenuVerificacoes()
         {
-            int acao = -1;
+            long acao = -1;
 
             while (acao != 1 && acao != 2 && acao != 3 && acao != 4 && acao != 0)
             {
@@ -105,7 +106,7 @@ namespace Calculadora
                 Console.WriteLine("3 - Verificar se a média dos dois números é maior ou igual a 7");
                 Console.WriteLine("0 - Sair");
                 Console.WriteLine("<------------------------------------------------------------------>");
-                acao = int.Parse(Console.ReadLine());
+                acao = long.Parse(Console.ReadLine());
 
                 if (acao != 1 && acao != 2 && acao != 3 && acao != 4 && acao != 0)
                 {
@@ -115,29 +116,30 @@ namespace Calculadora
             return acao;
         }
 
-        private int LerNumero()
+        private long LerNumero()
         {
-            int numero = 0;
+            long numero = 0;
 
-            while (numero < 0 && numero > 100000000)
+            while (numero == 0)
             {
                 Console.WriteLine("<------------------->");
                 Console.WriteLine("Digite um número entre 0 e 100000000:");
                 Console.WriteLine("<------------------->");
-                numero = int.Parse(Console.ReadLine());
+                numero = long.Parse(Console.ReadLine());
 
                 if (numero < 0 && numero > 100000000)
                 {
                     Console.WriteLine("Digite um número válido");
+                    numero = 0;
                 }
             }
 
             return numero;
         }
 
-        private int Calcular(int num1, int num2, int acao)
+        private long Calcular(long num1, long num2, long acao)
         {
-            int resultado = 0;
+            long resultado = 0;
 
             if (acao == 1)
             {
@@ -159,7 +161,7 @@ namespace Calculadora
             return resultado;
         }
 
-        private bool Verificar(int num1, int num2, int acao)
+        private bool Verificar(long num1, long num2, long acao)
         {
             bool verificacao = false;
 

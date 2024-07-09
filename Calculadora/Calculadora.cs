@@ -8,42 +8,42 @@ namespace Calculadora
 {
     public static class Calculadora
     {
-        public static int Adicao(int num1, int num2)
+        public static long Adicao(long num1, long num2)
         {
-            int resultado = num1 + num2;
+            long resultado = num1 + num2;
             return resultado;
         }
 
-        public static int Subtracao(int num1, int num2)
+        public static long Subtracao(long num1, long num2)
         {
-            int resultado = num1 - num2;
+            long resultado = num1 - num2;
             return resultado;
         }
 
-        public static int Multiplicacao(int num1, int num2)
+        public static long Multiplicacao(long num1, long num2)
         {
-            int resultado = num1 * num2;
+            long resultado = num1 * num2;
             return resultado;
         }
 
-        public static int Divisao(int num1, int num2)
+        public static long Divisao(long num1, long num2)
         {
-            int resultado = num1 / num2;
+            long resultado = num1 / num2;
             return resultado;
         }
 
-        public static bool VerificaMultiplo(int num1, int num2)
+        public static bool VerificaMultiplo(long num1, long num2)
         {
             bool verificacao = false;
             if (num1 > num2)
             {
-                int resultado = num1 % num2;
+                long resultado = num1 % num2;
                 Console.WriteLine($"Os números {num1} e {num2} são múltiplos");
                 verificacao = true;
             }
             else if (num1 < num2)
             {
-                int resultado = num2 % num1;
+                long resultado = num2 % num1;
                 Console.WriteLine($"Os números {num1} e {num2} são múltiplos");
                 verificacao = true;
             }
@@ -54,7 +54,7 @@ namespace Calculadora
             return verificacao;
         }
 
-        public static bool VerificaPares(int num1, int num2)
+        public static bool VerificaPares(long num1, long num2)
         {
             bool verificacao = false;
             if (num1 %2==0 && num1 % 2 == 0)
@@ -65,7 +65,7 @@ namespace Calculadora
             return verificacao;
         }
 
-        public static bool VerificaMedia(int num1, int num2)
+        public static bool VerificaMedia(long num1, long num2)
         {
             bool verificacao = false;
             double media = (num1 + num2) / 2;
