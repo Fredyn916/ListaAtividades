@@ -35,13 +35,21 @@ namespace Calculadora
         public static bool VerificaMultiplo(int num1, int num2)
         {
             bool verificacao = false;
-            for (int i = 0; i <= 100000000; i++)
+            if (num1 > num2)
             {
-                if (num1 == i && i %num2==0)
-                {
-                    Console.WriteLine($"O número {num1} é múltiplo de {num2}.");
-                    verificacao = true;
-                }
+                int resultado = num1 % num2;
+                Console.WriteLine($"Os números {num1} e {num2} são múltiplos");
+                verificacao = true;
+            }
+            else if (num1 < num2)
+            {
+                int resultado = num2 % num1;
+                Console.WriteLine($"Os números {num1} e {num2} são múltiplos");
+                verificacao = true;
+            }
+            else
+            {
+                Console.WriteLine($"Os números {num1} e {num2} não são múltiplos");
             }
             return verificacao;
         }
